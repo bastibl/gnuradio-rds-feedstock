@@ -9,6 +9,7 @@ set -xeuo pipefail
 export FEEDSTOCK_ROOT="${FEEDSTOCK_ROOT:-/home/conda/feedstock_root}"
 source ${FEEDSTOCK_ROOT}/.scripts/logging_utils.sh
 
+
 ( endgroup "Start Docker" ) 2> /dev/null
 
 ( startgroup "Configuring conda" ) 2> /dev/null
@@ -33,6 +34,14 @@ conda install --yes --quiet "conda-forge-ci-setup=3" conda-build pip ${GET_BOA:-
 setup_conda_rc "${FEEDSTOCK_ROOT}" "${RECIPE_ROOT}" "${CONFIG_FILE}"
 
 source run_conda_forge_build_setup
+
+
+# Install the yum requirements defined canonically in the
+# "recipe/yum_requirements.txt" file. After updating that file,
+# run "conda smithy rerender" and this line will be updated
+# automatically.
+/usr/bin/sudo -n yum install -y mesa-libGL
+
 
 # make the build number clobber
 make_build_number "${FEEDSTOCK_ROOT}" "${RECIPE_ROOT}" "${CONFIG_FILE}"
