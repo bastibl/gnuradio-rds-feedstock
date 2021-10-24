@@ -9,7 +9,6 @@ set -xeuo pipefail
 export FEEDSTOCK_ROOT="${FEEDSTOCK_ROOT:-/home/conda/feedstock_root}"
 source ${FEEDSTOCK_ROOT}/.scripts/logging_utils.sh
 
-
 ( endgroup "Start Docker" ) 2> /dev/null
 
 ( startgroup "Configuring conda" ) 2> /dev/null

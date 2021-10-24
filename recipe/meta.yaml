@@ -45,6 +45,7 @@ requirements:
   host:
     - gmp  # [linux]
     - gnuradio-core
+    - gnuradio-osmosdr
     - pip  # [win]
     - pybind11
     - python
