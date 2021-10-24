@@ -78,9 +78,9 @@ test:
     #- if not exist %PREFIX%\\Library\\share\\gnuradio\\grc\\blocks\\{{ block }}.block.yml exit 1  # [win]
     #{% endfor %}
 
-  # imports:
+  imports:
     # verify that the python module imports
-    # - {{ oot_name }}
+    - {{ oot_name }}
 
 about:
   home: https://github.com/{{ github_user_or_org }}/{{ github_repo }}
