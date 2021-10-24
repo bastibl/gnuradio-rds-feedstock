@@ -1,2 +1,6 @@
 channel_targets:
   - YOUR_ANACONDA_CHANNEL main
+docker_image:
+  - bastibl/linux-anvil-comp7
+cuda_compiler_version:
+  - None
