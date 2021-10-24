@@ -2,8 +2,8 @@
 
 # Jinja variables help maintain the recipe by keeping repeated info in one place.
 # Fill in the github information or set the package name and URL manually!
-{% set github_user_or_org = "drmpeg" %}
-{% set github_repo = "gr-paint" %}
+{% set github_user_or_org = "bastibl" %}
+{% set github_repo = "gr-rds" %}
 # A version number is REQUIRED for sanity. Tag and release if necessary!
 {% set version = "0.0.1a" %}
 # OOT module packages conventionally start with "gnuradio-" before the OOT name.
@@ -23,12 +23,12 @@ source:
   ##  and otherwise fall back to versioned archive:
   # url: https://github.com/{{ github_user_or_org }}/{{ github_repo }}/archive/v{{ version }}.tar.gz
   ##  or an archive based on a commit hash:
-  url: https://github.com/{{ github_user_or_org }}/{{ github_repo }}/archive/24765f98ed6d840765071714a5765b43f474608f.tar.gz
+  url: https://github.com/{{ github_user_or_org }}/{{ github_repo }}/archive/f2bcf7336ff63967484cda8dbec078d54a054d17.tar.gz
   ##  sha256 is the preferred checksum -- you can get it for a file with:
   ##   `openssl sha256 <file name>`.
   ##  You may need the openssl package, available on conda-forge:
   ##   `conda install openssl -c conda-forge``
-  sha256: 8928cd02f521d4cb65d90ff9b92cd0fe30011ddffcb3f71dc35b288327dad7d6
+  sha256: 75e3580267b6e5b95a918dc3fea471c018ef3a7795bc72cd7b08d9cf9e2f47a0
 
 build:
   number: 0
@@ -54,8 +54,6 @@ requirements:
   run:
     - numpy
     - python
-    # Add/remove runtime dependencies here (below needed for gr-paint)
-    - pillow
 
 test:
   commands:
@@ -80,34 +78,30 @@ test:
     #- if not exist %PREFIX%\\Library\\share\\gnuradio\\grc\\blocks\\{{ block }}.block.yml exit 1  # [win]
     #{% endfor %}
 
-  imports:
+  # imports:
     # verify that the python module imports
-    - {{ oot_name }}
+    # - {{ oot_name }}
 
 about:
   home: https://github.com/{{ github_user_or_org }}/{{ github_repo }}
   # Remember to specify the license variants for BSD, Apache, GPL, and LGPL.
   # Use the SPDX identifier, e.g: GPL-2.0-only instead of GNU General Public License version 2.0
   # See https://spdx.org/licenses/
-  license: GPL-3.0-or-later
+  license: GPL-3.0
   # The license_family, i.e. "BSD" if license is "BSD-3-Clause". (optional)
   license_family: GPL
   # It is strongly encouraged to include a license file in the package,
   # (even if the license doesn't require it) using the license_file entry.
   # See https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#license-file
   license_file: COPYING
-  summary: Template package of a GNU Radio module.
+  summary: GNU Radio RDS Conda package.
   # The remaining entries in this section are optional, but recommended.
   description: >
-    Template package of a GNU Radio module. This example builds a package
-    for gr-paint. You can modify the files in the 'recipe' directory and
-    'conda-forge.yml' to build any OOT module!
+    FM RDS/TMC Transceiver 
   doc_url: https://github.com/{{ github_user_or_org }}/{{ github_repo }}
   dev_url: https://github.com/{{ github_user_or_org }}/{{ github_repo }}
 
 extra:
   recipe-maintainers:
-    # GitHub IDs for maintainers of the recipe.
-    # Always check with the people listed below if they are OK becoming maintainers of the recipe. (There will be spam!)
-    - LisaSimpson
-    - LandoCalrissian
+    - bastibl
+    - ryanvolz

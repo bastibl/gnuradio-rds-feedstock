@@ -37,4 +37,4 @@ channels:
   targets:
     - ["YOUR_ANACONDA_CHANNEL", "main"]
 github:
-  user_or_org: YOUR_GITHUB_USER_OR_ORG
+  user_or_org: bastibl
