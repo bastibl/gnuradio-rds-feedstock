@@ -49,6 +49,7 @@ requirements:
     - pybind11
     - python
     - volk
+    - pyqt
     # Add/remove library dependencies here
 
   run:
